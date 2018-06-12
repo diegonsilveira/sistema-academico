@@ -11,6 +11,14 @@ exports.get = (req, res, next) => {
     });;
 };
 
+exports.getOne = (req, res, next) => {
+    Noticias.findById(req.params.id, 'title description').then(data=>{
+        res.status(200).send(data);
+    }).catch(e=>{
+        res.status(400).send(e);
+    });;
+};
+
 exports.post = (req, res, next) => {
     var noticia = new Noticias(req.body);
     noticia.save().then(x=>{

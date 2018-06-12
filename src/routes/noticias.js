@@ -6,6 +6,8 @@ const controller = require('../controllers/noticias-controller');
 
 router.get('/', controller.get);
 
+router.get('/:id', controller.getOne);
+
 router.post('/', controller.post);
 
 router.put('/:id', controller.put);
